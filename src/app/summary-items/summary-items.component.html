@@ -1,0 +1,82 @@
+<div class="summary-item-wrapper" [ngSwitch]="item.type">
+
+  <ng-container *ngSwitchCase="'header'">
+    <div class="summary-header">
+      <div class="model-icon-wrapper"><mat-icon>account_circle</mat-icon></div>
+      <div class="model-name-wrapper"><strong>{{ (item.label ? item.label : item.properties[0]) | translate }}:</strong><span>{{ selectedModel[item.properties[0]] }} </span></div>
+      <div class="model-edit-wrapper"><mat-icon>build</mat-icon></div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'label'">
+    <div class="summary-item">
+      <p><strong>{{ (item.label ? item.label : item.properties ? item.properties[0] : 'TEMP') | translate }}:</strong></p>
+      <ng-container *ngFor="let property of item.properties">
+        <p>{{ selectedModel[property] }}</p>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'editable'">
+    <div class="summary-item">
+      <p><strong>{{ (item.label ? item.label : item.properties[0]) }}:</strong></p>
+      <span *ngIf="selectedModel[item.properties[0]]" class="clickable editable-properties-wrapper">
+        <mat-icon>account_circle</mat-icon>
+        <mat-icon>exit_to_app</mat-icon>
+        <i class="fa fa-user-circle"aria-hidden="true"></i>
+        <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+        <span>{{ selectedModel[item.properties[0]] }} </span>
+      </span>
+    </div>
+</ng-container>
+
+  <ng-container *ngSwitchCase="'divider'">
+    <hr>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'sectionHeader'">
+    <div class="summary-item">
+      <h4>{{ item.label | translate }}</h4>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'weblink'">
+    <div class="summary-item">
+      <p><strong>{{ (item.label ? item.label : item.properties[0]) }}:</strong></p>
+      <a *ngIf="selectedModel[item.properties[0]]" target="_blank" href="{{ selectedModel[item.properties[0]].indexOf('http') < 0 ? 'http://' + selectedModel[item.properties[0]] : selectedModel[item.properties[0]] }}">{{ 'ShowWebPage' | translate }}</a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'checkbox'">
+    <div class="summary-item">
+      <span class="checkbox-span">
+        <strong>{{ (item.label ? item.label : item.properties[0]) | translate }}:</strong>
+        <mat-checkbox color="primary" [disabled]="true" [checked]="selectedModel[item.properties[0]] || false"></mat-checkbox>
+      </span>
+
+    </div>
+  </ng-container>
+
+  <!-- <ng-container *ngSwitchCase="'map'">
+    <div class="summary-item">
+      <por-elite-gmap #gmap [selectedObjects]="[selectedModel]" [height]="280"></por-elite-gmap>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'gallery'">
+    <div class="summary-item">
+      <por-elite-gallery [selectedModel]="selectedModel"></por-elite-gallery>
+    </div>
+  </ng-container> -->
+
+  <div *ngIf="showEditControls" class="summary-item-wrapper-edit">
+    <div class="item-move">
+      <mat-icon (click)="triggerChangeItemOrder('UP', item)">keyboard_arrow_up</mat-icon>
+      <mat-icon (click)="triggerChangeItemOrder('DOWN', item)">keyboard_arrow_down</mat-icon>
+    </div>
+    <div class="item-delete">
+      <mat-icon (click)="triggerChangeItemOrder('DELETE', item)">close</mat-icon>
+    </div>
+  </div>
+
+</div>

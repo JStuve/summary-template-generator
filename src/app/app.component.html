@@ -1,0 +1,8 @@
+<div class="st-gen-wrapper">
+  <model-summary-preview [summaryItems]="summaryItems" [selectedModel]="selectedModel" ></model-summary-preview>
+  <mat-tab-group mat-align-tabs="start" style="overflow-x: hidden">
+    <mat-tab label="Elite">
+      <model-summary-edit style="flex: 1" (updateFormSummary)="triggerUpdateFormSummary($event)" (updateSelectModel)="triggerUpdateSelectedModel($event)"></model-summary-edit>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,105 @@
+<div class="model-summary-edit-wrapper">
+  <div class="edit-options">
+
+    <!-- Model Type -->
+    <div class='option-wrapper'>
+      <div class='option-desc'>
+        Select an entity model that you would like to edit
+      </div>
+      <div class='option-dropdowns'>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Model</mat-label>
+          <mat-select [(value)]="selectedModelType" (selectionChange)="editOptionChanged(selectedModelType, optionTypes.MODEL)">
+            <mat-option *ngFor="let model of modelTypes" [value]="model">
+              {{model.key}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+    </div>
+
+    <!-- Type -->
+    <div class='option-wrapper bg-o'>
+      <div class='option-desc'>
+        Choose how you would like to display your entity data
+      </div>
+      <div class='option-dropdowns'>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Type</mat-label>
+          <mat-select [(value)]="selectedType" (selectionChange)="editOptionChanged(selectedType, optionTypes.TYPE)">
+            <mat-option *ngFor="let type of sItemTypes" [value]="type">
+              {{type.key}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>    
+
+    <!-- Property -->
+    <div class='option-wrapper'>
+      <div class='option-desc'>
+        Select model properties to display
+      </div>
+      <div *ngIf="summaryItem.properties.length" class='option-dropdowns'>
+        <ng-container *ngFor="let currentProps of summaryItem.properties; let i=index">
+          <mat-form-field appearance="outline">
+            <mat-label>Select Property</mat-label> 
+            <mat-select [(value)]="sProp[i]" (selectionChange)="editOptionChanged($event, optionTypes.PROP, i)">
+              <mat-option *ngFor="let property of properties" [value]="property">
+                {{property.key}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+        <button mat-raised-button color="primary" (click)="addNewProperty()" [disabled]="summaryItem.properties.length == 4"><mat-icon>add</mat-icon></button>
+        <button mat-raised-button color="primary" (click)="removeNewProperty()" [disabled]="summaryItem.properties.length == 1"><mat-icon>block</mat-icon></button>
+      </div>
+    </div>
+
+    <!-- Fromat -->
+    <div class='option-wrapper bg-o'>
+      <div class='option-desc'>
+        [Optional] Select format for your displayed date.<br><br>*Format does not currently display on this builder
+      </div>
+      <div class='option-dropdowns'>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Format</mat-label>
+          <mat-select [(value)]="selectedFormat" (selectionChange)="editOptionChanged(selectedFormat, optionTypes.FORMAT)">
+            <mat-option *ngFor="let format of formatType" [value]="format">
+              {{format.key}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Label -->
+    <div class='option-wrapper '>
+      <div class='option-desc'>
+        [Optional] Enter a custom label for your summary item
+      </div>
+      <div class='option-dropdowns'>
+        <mat-form-field appearance="outline">
+          <mat-label>Custom Label</mat-label>
+          <input matInput type="text" [(ngModel)]="summaryItem.label">
+        </mat-form-field>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="edit-preview">
+    <span>New Summary Item</span>
+    <div class="edit-item">
+      <summary-items-preview *ngIf="selectedModel && summaryItem && summaryItem.type"
+        [selectedModel]="selectedModel" 
+        [item]="summaryItem">
+      </summary-items-preview>
+    </div>
+    <div class="edit-button">
+        <button mat-button color="primary" (click)="resetEditSummary()">Reset</button>
+        <button mat-button color="primary" (click)="triggerUpdateFormSummary()">Add</button>
+    </div>
+  </div>
+</div>

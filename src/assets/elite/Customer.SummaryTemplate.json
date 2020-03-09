@@ -1,0 +1,111 @@
+{
+  "items": [
+    {
+      "type": "section",
+      "items": [
+        {
+          "type": "header",
+          "properties": [
+            "Name"
+          ]
+        },
+        {
+          "type": "label",
+          "format": "phone",
+          "properties": [
+            "Phone"
+          ]
+        },
+        {
+          "type": "label",
+          "format": "phone",
+          "properties": [
+            "Work"
+          ]
+        },
+        {
+          "type": "label",
+          "properties": [
+            "Email"
+          ]
+        },
+        {
+          "type": "label",
+          "properties": [
+            "Key"
+          ]
+        },
+        {
+          "type": "editable",
+          "label": "Salesrep",
+          "properties": [
+            "SalesrepName",
+            "SalesrepId"
+          ]
+        },
+        {
+          "type": "editable",
+          "label": "Jobsite",
+          "properties": [
+            "JobsiteName",
+            "JobsiteId"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "items": [
+        {
+          "type": "sectionHeader",
+          "label": "Payment"
+        },
+        {
+          "type": "label",
+          "format": "shortDate",
+          "label": "LastPayDateColumnHeader",
+          "properties": [
+            "LastPayDate"
+          ]
+        },
+        {
+          "type": "label",
+          "label": "LastPayAmountColumnHeader",
+          "format": "currency",
+          "properties": [
+            "LastPayAmount"
+          ]
+        },
+        {
+          "type": "label",
+          "label": "CurrentBalanceColumnHeader",
+          "format": "currency",
+          "properties": [
+            "CurrentBalance"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "items": [
+        {
+          "type": "label",
+          "properties": [
+            "AddressTop",
+            "AddressBottom"
+          ],
+          "label": "Address"
+        },
+        {
+          "type": "map",
+          "properties": [
+            "Address1",
+            "CityState",
+            "Zip"
+          ]
+        }
+      ]
+    }
+  ]
+}

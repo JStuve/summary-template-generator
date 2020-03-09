@@ -1,0 +1,14 @@
+{
+  "ModelType": "Jobsite",
+  "Id": "1067",
+  "Name": "A & C Enterprises",
+  "SalesrepId": null,
+  "SalesrepName": null,
+  "TouchpointId": null,
+  "TouchpointName": null,
+  "AddressTop": "13447 Shahan Dr",
+  "AddressBottom": "Dallas, TX 75234",
+  "MapType": 1,
+  "Lat": null,
+  "Lng": null
+}

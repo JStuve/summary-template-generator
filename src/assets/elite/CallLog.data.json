@@ -1,0 +1,19 @@
+{
+  "ModelType": "CallLog",
+  "Id": "100003",
+  "Name": "100003",
+  "ContractId": "635534",
+  "ContractName": "635534",
+  "OperatorId": "0",
+  "OperatorName": "",
+  "CustomerId": "168501",
+  "CustomerName": "B.H. AWNING & TENT",
+  "SalesrepId": null,
+  "SalesrepName": null,
+  "StoreId": null,
+  "StoreName": null,
+  "TypeName": null,
+  "Notes": "This is a call log pertaining to a specific contract. It can be used to log conversations or important information about a contract. Call logs can be reported on and grouped by call log type.",
+  "CallDuration": 0,
+  "Acknowledge": false
+}

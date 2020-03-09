@@ -1,0 +1,31 @@
+<div class="model-summary-preview-wrapper">
+  <div class="preview-header">   
+    <span>Summary</span>
+    <button mat-stroked-button color="primary" (click)="loadSummaryTemplate()" [disabled]="!selectedModel">Load Production Template</button>
+    <button mat-stroked-button color="primary" (click)="saveSummartTemplate()" [disabled]="!selectedModel" title="Save Template"><mat-icon>save_alt</mat-icon></button>
+  </div>
+  <div class="preview-body" >
+    
+
+
+    <div class="preview-items" *ngIf="selectedModel && summaryItems.length !== 0">
+      <ng-container *ngFor="let sectionItem of summaryItems; let sIndex = index">
+        <div class="summary-section-wrapper">
+          <summary-items-preview  *ngFor="let summaryItem of sectionItem.items; let iIndex = index"
+              [selectedModel]="selectedModel" 
+              [item]="summaryItem"
+              [showEditControls]='true'
+              (changeItemOrder)="triggerChangeItemOrder($event, sIndex, iIndex)">
+          </summary-items-preview>
+          <div class="summary-section-wrapper-edit">
+            <mat-icon class="section-edit section-edit-add" (click)="triggerChangeSectionOrder('ADD', sIndex)">add</mat-icon>
+            <mat-icon class="section-edit section-edit-up" (click)="triggerChangeSectionOrder('UP', sIndex)">keyboard_arrow_up</mat-icon>
+            <mat-icon class="section-edit section-edit-down" (click)="triggerChangeSectionOrder('DOWN', sIndex)">keyboard_arrow_down</mat-icon>
+            <mat-icon class="section-edit section-edit-delete" (click)="triggerChangeSectionOrder('DELETE', sIndex)">close</mat-icon>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <button mat-stroked-button color="primary" (click)="clearSummaryTemplate()" [disabled]="!selectedModel">Clear</button>
+</div>

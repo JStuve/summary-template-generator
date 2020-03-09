@@ -1,0 +1,12 @@
+{
+  "ModelType": "Operator",
+  "Id": "7",
+  "Name": "Brad Aumann",
+  "SalesrepId": null,
+  "SalesrepName": null,
+  "StoreId": "000",
+  "StoreName": null,
+  "GroupId": "1",
+  "GroupName": "Office",
+  "Login": "7"
+}

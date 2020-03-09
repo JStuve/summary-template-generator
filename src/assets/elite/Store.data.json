@@ -1,0 +1,11 @@
+{
+  "ModelType": "Store",
+  "Id": "002",
+  "Name": "V2020 QA Sup #2",
+  "AddressTop": "910 N Collins St",
+  "AddressBottom": "Arlington, TX 76011",
+  "MapType": 2,
+  "Lat": null,
+  "Lng": null,
+  "TaxCode": 14
+}
