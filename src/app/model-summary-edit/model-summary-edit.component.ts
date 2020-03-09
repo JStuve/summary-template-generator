@@ -73,10 +73,10 @@ export class ModelSummaryEditComponent  {
       key: "Checkbox",
       value: "checkbox"
     },
-    // { 
-    //   key: "Gallery",
-    //   value: "gallery"
-    // }
+    { 
+      key: "Gallery",
+      value: "gallery"
+    }
   ]
   selectedFormat: KeyValue;
   formatType: KeyValue[] = [
