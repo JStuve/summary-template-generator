@@ -53,10 +53,10 @@ export class ModelSummaryEditComponent  {
       key: "SectionHeader",
       value: "sectionHeader"
     },
-    // { 
-    //   key: "Map",
-    //   value: "map"
-    // },
+    { 
+      key: "Map",
+      value: "map"
+    },
     { 
       key: "Divider",
       value: "divider"
